@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<title>Project_04</title>
+</head>
+<body>
+	<header>
+		<h1>TODO</h1>
+		<div>
+			<img src="images/icon-moon.svg" alt="Dark mode moon icon">
+		</div>
+	</header>
+	<main>
+		<form>
+			<label class="checkbox">
+				<input type="checkbox"/>
+			</label>
+			<input required="" class="task_input" type="text" placeholder="Add a task to the list..." name="title" data-com.bitwarden.browser.user-edited="yes">
+		</form>
+		<div id="task_li_div">
+			<ul>
+				<li class="task_li">
+					<label class="checkbox">
+						<input type="checkbox"/>
+					</label>
+					<p>An exemple of task</p>
+					<b class="cross_button">&#215</b>
+				</li>
+				<li class="task_li">
+					<label class="checkbox">
+						<input type="checkbox"/>
+					</label>
+					<p>An exemple of task</p>
+					<b class="cross_button">&#215</b>
+				</li>
+				<li class="task_li">
+					<label class="checkbox">
+						<input type="checkbox"/>
+					</label>
+					<p>An exemple of task</p>
+					<b class="cross_button">&#215</b>
+				</li>
+				<li id="infos_li">
+					<i class="task_count">items left</i>
+					<p>Clear Completed</p>
+				</li>
+			</ul>
+		</div>
+		<div id="selector_div">
+			<h2>All</h2>
+			<h2>Active</h2>
+			<h2>Completed</h2>
+		</div>
+	</main>
+	<footer>
+		<h3>Drag and drop to reorder list</h3>
+	</footer>
+</body>
+</html>
