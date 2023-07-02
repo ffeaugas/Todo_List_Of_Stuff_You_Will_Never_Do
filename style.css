@@ -1,14 +1,24 @@
 :root {
-    --white: hsl(0, 0%, 100%);
-    --lightModeBackground: hsl(0, 0%, 97%);
-    --veryDarkBlue: hsl(235, 21%, 11%);
-    --veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
-    --lightGrayishBlue: hsl(234, 39%, 85%);
+    --mainBackground: hsl(0, 0%, 100%);
+    --htmlBackground: hsl(0, 0%, 97%);
+    --tasklistBackground: hsl(236, 33%, 92%);
+    --checkedText: hsl(234, 39%, 85%);
+    --textColor: hsl(233, 14%, 35%);
     --lightGrayishBlueHover: hsl(236, 33%, 92%);
-    --mediumGrayishBlue: hsl(230, 3%, 58%);
-    --darkGrayishBlue: hsl(234, 11%, 52%);
-    --veryDarkGrayishBlue: hsl(233, 14%, 35%);
-    --veryDarkGrayishBlue2: hsl(237, 14%, 26%);
+    --mediumGrayishBlue: hsl(0, 3%, 58%);
+    --darkGrayishBlue: hsl(230, 2%, 49%);
+    --selectorColor: hsl(233, 65%, 58%);
+}
+
+.dark_color {
+    --mainBackground: rgba(37, 39, 60, 255);
+    --htmlBackground: rgba(24, 24, 36, 255);
+    --tasklistBackground: hsla(240, 7%, 32%, 0.719);
+    --checkedText: hsl(225, 3%, 27%);
+    --textColor: rgba(203, 205, 229, 255);
+    --lightGrayishBlueHover: hsla(240, 7%, 32%, 0.719);
+    --mediumGrayishBlue: rgba(96, 97, 124, 255);
+    background-image: url("images/bg-mobile-dark.jpg");
 }
 
 * {
@@ -22,12 +32,16 @@ body {
     background-image: url("images/bg-mobile-light.jpg");
     background-repeat: no-repeat;
     background-size: auto;
-    background-color: var(--lightModeBackground);
+    background-color: var(--htmlBackground);
 }
 
 @media (min-width: 376px) {
     body {
         background-image: url("images/bg-desktop-light.jpg");
+    }
+
+    .dark_color {
+        background-image: url("images/bg-desktop-dark.jpg");
     }
 }
 
@@ -60,7 +74,7 @@ li,
 #selector_div {
     padding: 1em clamp(1em, 0.1em + 2vw, 1.8rem);
     align-items: center;
-    background-color: var(--white);
+    background-color: var(--mainBackground);
 }
 
 p,
@@ -75,7 +89,7 @@ input[type="text"] {
 p,
 i {
     font-size: clamp(0.8em, 0.1em + 2vw, 1em);
-    color: var(--veryDarkGrayishBlue);
+    color: var(--textColor);
     display: inline-block;
     vertical-align: middle;
     border: none;
@@ -83,7 +97,7 @@ i {
 }
 
 h1 {
-    color: var(--white);
+    color: white;
     letter-spacing: 0.4em;
     font-size: clamp(1.7em, 0.1rem + 4vw, 2.8rem);
 }
@@ -105,7 +119,7 @@ header {
 
 @media (min-width: 1441px) {
     header {
-        margin-top: clamp(0em, 0.5rem + 5vw, 8rem);
+        margin-top: clamp(8em, 0em + 11vw, 16em);
     }
 }
 
@@ -115,6 +129,10 @@ header div {
 
 header img {
     width: 100%;
+}
+
+img.hide {
+    display: none !important;
 }
 
 /*  MAIN    */
@@ -130,7 +148,6 @@ main {
 form,
 #selector_div {
     border-radius: 0.3em;
-    /* flex: 1; */
 }
 
 form {
@@ -144,10 +161,10 @@ input[type="text"] {
     outline: none;
     overflow: visible;
     color: var(--darkGrayishBlue);
+    background-color: var(--mainBackground);
 }
 
 ul {
-    /* background-color: var(--lightGrayishBlueHover); */
     display: flex;
     flex-direction: column;
     gap: 1px;
@@ -174,12 +191,24 @@ li {
 #task_li_div {
     border-radius: 0.3em;
     overflow: hidden;
-    /* background-color: var(--darkGrayishBlue); */
-    background-color: var(--lightGrayishBlueHover);
+    background-color: var(--tasklistBackground);
     gap: 1px;
     box-shadow: 0px 16px 26px 5px rgba(0, 0, 0, 0.07);
     display: flex;
     flex-direction: column;
+}
+
+.p_checked {
+    text-decoration: line-through;
+    color: var(--checkedText);
+}
+
+.hide_completed .is_completed {
+    display: none !important;
+}
+
+.hide_active .task_li:not(.is_completed) {
+    display: none !important;
 }
 
 /* - Cross Buttons */
@@ -210,7 +239,7 @@ li {
     height: 1.5em;
     width: 1.5em;
     appearance: none;
-    background: linear-gradient(white, white) padding-box, var(--lightGrayishBlue) border-box;
+    background: linear-gradient(var(--mainBackground), var(--mainBackground)) padding-box, var(--lightGrayishBlueHover) border-box;
     border: 1px solid transparent;
     border-radius: 1em;
     transition-duration: 0.3s;
@@ -221,7 +250,7 @@ li {
 }
 
 .checkbox input:hover {
-    background: linear-gradient(white, white) padding-box, linear-gradient(159deg, rgba(95, 211, 244, 1), rgba(216, 107, 226, 1)) border-box;
+    background: linear-gradient(var(--mainBackground), var(--mainBackground)) padding-box, linear-gradient(159deg, rgba(95, 211, 244, 1), rgba(216, 107, 226, 1)) border-box;
     border: 1px solid transparent;
 }
 
@@ -232,7 +261,7 @@ li {
 
 .checkbox input:checked:after {
     content: url(images/icon-check.svg);
-    color: #fff;
+    /* color: white; */
 }
 
 /* - Info li */
@@ -271,16 +300,24 @@ i {
     box-shadow: 0px 16px 26px 5px rgba(0, 0, 0, 0.03);
 }
 
-h2 {
+button {
     color: var(--mediumGrayishBlue);
     font-size: clamp(0.9em, 0.1em + 2vw, 1.2em);
     font-weight: 600;
+    transition: 0.15s;
+    background: none;
+    border: none;
+}
+
+.selected {
+    color: var(--selectorColor);
 }
 
 /* FOOTER */
 
 footer {
     margin-top: 3em;
+    margin-bottom: 2em;
 }
 
 h3 {

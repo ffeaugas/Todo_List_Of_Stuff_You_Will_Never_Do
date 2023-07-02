@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 	<meta charset="UTF-8">
@@ -14,7 +14,8 @@
 	<header>
 		<h1>TODO</h1>
 		<div>
-			<img src="images/icon-moon.svg" alt="Dark mode moon icon">
+			<img id="dark_mode_icon" src="images/icon-moon.svg" alt="Dark mode moon icon">
+			<img id="light_mode_icon" class="hide" src="images/icon-sun.svg" alt="Light mode moon icon">
 		</div>
 	</header>
 	<main>
@@ -27,23 +28,23 @@
 		</form>
 		<div id="task_li_div">
 			<ul id="tasklist">
-				<li class="task_li">
+				<!-- <li class="task_li">
 					<label class="checkbox">
 						<input type="checkbox" />
 					</label>
 					<p>An exemple of task</p>
 					<b class="cross_button">&#215</b>
-				</li>
+				</li> -->
 			</ul>
 			<li id="infos_li">
-				<i id="task_count">0 items left</i>
-				<p>Clear Completed</p>
+				<i id="task_count">No item left</i>
+				<p id="task_clearer">Clear Completed</p>
 			</li>
 		</div>
 		<div id="selector_div">
-			<h2>All</h2>
-			<h2>Active</h2>
-			<h2>Completed</h2>
+			<button data-filter="all" class="selected">All</button>
+			<button data-filter="active">Active</button>
+			<button data-filter="completed">Completed</button>
 		</div>
 	</main>
 	<footer>
