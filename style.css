@@ -94,6 +94,7 @@ i {
     vertical-align: middle;
     border: none;
     transform: translate(0, 10%);
+    overflow: hidden;
 }
 
 h1 {
@@ -162,6 +163,7 @@ input[type="text"] {
     overflow: visible;
     color: var(--darkGrayishBlue);
     background-color: var(--mainBackground);
+    flex: 1;
 }
 
 ul {
