@@ -1,5 +1,5 @@
 # Todo_List_Of_Stuff_You_Will_Never_Do
-My HTML/CSS + JS project : a todo-list using a FrotendMentor.io design with some features : completed task filter, dark/light mode, drag and drop,...
+My 2nd HTML/CSS + JS project : a todo-list using a FrotendMentor.io design with some features : completed task filter, dark/light mode, drag and drop,...
 
 # Conclusion
 
